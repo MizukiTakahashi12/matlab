@@ -47,15 +47,17 @@ elseif CASE == 2  % Shizugawa2
 
 
 elseif CASE == 3  % Shizugawa3
-    grd='D:\COAWST_DATA\Shizugawa\Shizugawa3\Grid\Shizugawa3_grd_v0.3b.nc';
-    his=["E:\COAWST_OUTPUT\Shizugawa\Shizugawa3_eco\SZ3_noaqdrag_his_20230701.nc"];
-    out_dirstr = 'output/figs_png_S3srf_25h_ave_flow_noaqdrag';
-    % out_dirstr = 'output/figs_png_S3btm_25h_ave_flow_noaqdrag';
+    grd='Shizugawa3_grd_v0.4c.nc';
+    his="..\..\Projects\Shizugawa_OUTPUT\SZ3_veg_eco_without_v0.4c_his_20230701.nc";
+%    out_dirstr = 'output/figs_png_S3srf_without_25h_ave_flow';
+     out_dirstr = 'output/figs_png_S3btm_without_v0.4c_btm_25h_ave_flow';
+%    out_dirstr = 'output/figs_png_S3srf_with_25h_ave_flow';
+%    out_dirstr = 'output/figs_png_S3btm_with_25h_ave_flow';
     
     LevelList = [-10 0 10 20 30 40 50 60 70 80 90 100 110 120 130];
     
-    Nz=15; % Surface
-    % Nz=1; % Bottom
+     % Nz=15; % Surface
+     Nz=1; % Bottom
     unit = 'km'; 
 %          'm', 'latlon'
 %     unit = 'latlon';
@@ -100,7 +102,7 @@ colormap7=superjet(128,'xvbZctgyorWq');
 % title='Sea surface temperature (^oC)'; cmin=0; cmax=30; colmap=colormap6; ncname='temp'; % YAEYAMA1
 % title='Sea surface temperature (^oC)'; cmin=6; cmax=12; colmap=jet(128); ncname='temp'; % YAEYAMA1
 % title='Sea surface temperature (^oC)'; cmin=16; cmax=34; colmap=colormap6; ncname='temp'; % YAEYAMA2 surface
-title='Sea bottom temperature (^oC)'; cmin=0; cmax=30; colmap=colormap6; ncname='temp'; % YAEYAMA2 bottom
+title='Sea bottom temperature (^oC)'; cmin=0; cmax=30; colmap=colormap6; ncname='flow'; % YAEYAMA2 bottom
 
 % title='Salinity (psu)'; cmin=33; cmax=35; colmap=jet(128); ncname='salt';
 

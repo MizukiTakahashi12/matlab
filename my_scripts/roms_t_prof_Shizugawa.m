@@ -1,4 +1,4 @@
-
+0
 clear
 close all
 
@@ -15,19 +15,19 @@ close all
 % --- Configurations
 
 % --- Grid and his file --- %
-grd   = 'F:\COAWST_DATA\Shizugawa\Shizugawa3\Grid\Shizugawa3_grd_v0.0.nc';
+grd   = 'Shizugawa3_grd_v0.4c.nc';
 % --- Other figure parameters --- %
 font_size    = 11;
 y_range      = [-2 55];  % Y-axis range (m)
 xsize        = 600;      % Figure x-size
 ysize        = 250;      % Figure y-size
 % --- Plotting period --- %
-min_date    = datenum(2021,6,1,0,0,0);  % Period 4 start
-max_date    = datenum(2021,11,1,0,0,0);  % Period 4 end
+min_date    = datenum(2023,7,1,0,0,0);  % Period 4 start
+max_date    = datenum(2023,7,20,0,0,0);  % Period 4 end
 ref_date     = datenum(2000,1,1,0,0,0);  % 
 % --- Transect for contour --- %
 % map_transect = xlsread('transect_SZ.xlsx', 'A3:B141');
-map_transect = xlsread('transect_SZ.xlsx', 'C3:D138');
+map_transect = xlsread('transect_SZ.xlsx', 'E3:F3');
 fig_save     = 1;  % 1: yes, otherwise: no
 
 unit = 'km'; 
@@ -37,7 +37,7 @@ unit = 'km';
 % ------------------------ %
 
 % his         = ['E:\COAWTS_OUTPUT\Shizugawa3\Shizugawa3_his_20210104.nc'];
-his         = ["E:\COAWTS_OUTPUT\Shizugawa3\Shizugawa3_his_20210824.nc"];
+his         = ["..\..\Projects\Shizugawa_OUTPUT\SZ3_veg_eco_without_his_20230701.nc"];
 out_dirstr = 'output/figs_png_S3prof';
 [status, msg] = mkdir( out_dirstr )
 
@@ -55,7 +55,7 @@ colormap7=superjet(128,'qhaoGUDylggtttZZZZbbbbiiiiiuuuuuuuuA');
 
 % --- Variable to plot
 
-title='Temperature (^oC)'; cmin=5; cmax=30; colmap=colormap6; ncname='temp';
+title='Depth'; cmin=5; cmax=30; colmap=colormap6; ncname='h';
 % title='Salinity (psu)'; cmin=33; cmax=35; colmap=colormap6; ncname='salt';
 % title='DO (umol/L)'; cmin=0; cmax=300; colmap=colormap6; ncname='oxygen';
 

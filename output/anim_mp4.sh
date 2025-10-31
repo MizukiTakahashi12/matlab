@@ -1,14 +1,12 @@
 #!/bin/bash
 #
-#name='DO'
-#name='PhyC02_01'
-name='S0_01'
+name='btm'
+#name='srf'
 
-#img_dir='figs_png_TB3_sed1'
-img_dir='figs_png_TB3_sed2'
+img_dir='figs_png_S3btm_25h_ave_flow'
+#img_dir='figs_png_S3srf_25h_ave_flow'
 
-#tag='TB3_sed1'
-tag='TB3_sed2'
+tag='SZ3_with'
 
 printf "file '%s'\n" ${img_dir}/${name}*.png > imglist.txt
 
