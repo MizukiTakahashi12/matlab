@@ -1,3 +1,4 @@
+clear all
 %
 % === Copyright (c) 2014-2023 Takashi NAKAMURA  =====
 %
@@ -6,20 +7,20 @@ CASE = 3;
 
 F_drawUV = true;
 % F_drawUV = false;
-id = 8;  % <- Select 1,2,3,100
+id = 3;  % <- Select 1,2,3,100
 
 if CASE == 1      % Shizugawa1
-    grd='F:\COAWST_DATA\Shizugawa\Shizugawa1\Grid\Shizugawa1_grd_v0.1.nc';
-    his=["E:\COAWTS_OUTPUT\Shizugawa1\Shizugawa1_his_20210102.nc"
-         "E:\COAWTS_OUTPUT\Shizugawa1\Shizugawa1_his_20210131.nc"
-         "E:\COAWTS_OUTPUT\Shizugawa1\Shizugawa1_his_20211231.nc"];
+    grd='Shizugawa1_grd_v0.1.nc';
+    his= "..\..\Projects\Shizugawa_OUTPUT\Shizugawa1_his_20230101.nc"
+         % "E:\COAWTS_OUTPUT\Shizugawa1\Shizugawa1_his_20210131.nc"
+         % "E:\COAWTS_OUTPUT\Shizugawa1\Shizugawa1_his_20211231.nc"];
 %     out_dirstr = 'output/figs_png_S1srf';
-    out_dirstr = 'output/figs_png_S1btm';
+    out_dirstr = 'output/figs_png_S1srf';
     
     LevelList = [-10 0 200 400 600 800 1000 1200 1400 1600 1800 2000 2200];
     
-%     Nz=15; % Surface
-    Nz=1; % Bottom
+    Nz=15; % Surface
+    % Nz=1; % Bottom
     unit = 'km'; 
 %          'm', 'latlon'
 %     unit = 'latlon';
@@ -28,16 +29,16 @@ if CASE == 1      % Shizugawa1
     v_legend = 1;
     
 elseif CASE == 2  % Shizugawa2
-    grd='F:\COAWST_DATA\Shizugawa\Shizugawa2\Grid\Shizugawa2_grd_v0.0.nc';
-    his=["E:\COAWTS_OUTPUT\Shizugawa2\Shizugawa2_his_20210103.nc"
-         "E:\COAWTS_OUTPUT\Shizugawa2\Shizugawa2_his_20220102.nc"];
+    grd='Shizugawa2_grd_v0.3.nc';
+    his= "..\..\Projects\Shizugawa_OUTPUT\Shizugawa2_his_20230601.nc"
+         % "E:\COAWTS_OUTPUT\Shizugawa2\Shizugawa2_his_20220102.nc"];
 %     out_dirstr = 'output/figs_png_S2srf';
-    out_dirstr = 'output/figs_png_S2btm';
+    out_dirstr = 'output/figs_png_S2srf';
     
     LevelList = [-10 0 20 40 60 80 100 120 140 160 180 200 220];
     
-%     Nz=15; % Surface
-    Nz=1; % Bottom
+    Nz=15; % Surface
+    % Nz=1; % Bottom
     unit = 'km'; 
 %          'm', 'latlon'
 %     unit = 'latlon';
@@ -48,16 +49,16 @@ elseif CASE == 2  % Shizugawa2
 
 elseif CASE == 3  % Shizugawa3
     grd='Shizugawa3_grd_v0.4c.nc';
-    his="..\..\Projects\Shizugawa_OUTPUT\SZ3_veg_eco_without_v0.4c_his_20230701.nc";
+    his="..\..\Projects\Shizugawa_OUTPUT\SZ3_veg_eco_with_v0.4c_his_20230701.nc";
 %    out_dirstr = 'output/figs_png_S3srf_without_25h_ave_flow';
-     out_dirstr = 'output/figs_png_S3btm_without_v0.4c_btm_25h_ave_flow';
+     out_dirstr = 'output/figs_png_S3btm_without_v0.4c_Significantwaveheight';
 %    out_dirstr = 'output/figs_png_S3srf_with_25h_ave_flow';
 %    out_dirstr = 'output/figs_png_S3btm_with_25h_ave_flow';
     
     LevelList = [-10 0 10 20 30 40 50 60 70 80 90 100 110 120 130];
     
-     % Nz=15; % Surface
-     Nz=1; % Bottom
+     Nz=15; % Surface
+     % Nz=1; % Bottom
     unit = 'km'; 
 %          'm', 'latlon'
 %     unit = 'latlon';
@@ -251,7 +252,7 @@ date_str=strcat(datestr(date,31),'  ',LOCAL_TIME);
 if id==1 || id==2
     [h_quiver,h_surf,h_contour,h_annot]=createvplot7(x_rho,y_rho,tmp,x_rho2,y_rho2,ubar3,vbar3,h,scale,date_str,'Velocity (m s^-^1)',0,Vmax,colmap4,xsize,ysize,xmin,xmax,ymin,ymax,unit,LevelList);
 elseif id == 3
-    [h_quiver,h_surf,h_contour,h_annot]=createvplot7(x_rho,y_rho,tmp,x_rho2,y_rho2,ubar3,vbar3,h,scale,date_str,'Hs (m)',0,1.5,jet(128),xsize,ysize,xmin,xmax,ymin,ymax,unit,LevelList);
+    [h_quiver,h_surf,h_contour,h_annot]=createvplot7(x_rho,y_rho,tmp,x_rho2,y_rho2,ubar3,vbar3,h,scale,date_str,'Significant wave height (m)',0,1.5,jet(128),xsize,ysize,xmin,xmax,ymin,ymax,unit,LevelList);
 elseif id == 4
     [h_quiver,h_surf,h_contour,h_annot]=createvplot7(x_rho,y_rho,tmp,x_rho2,y_rho2,ubar3,vbar3,h,scale,date_str,'Temperature (^oC)',3,24,jet(128),xsize,ysize,xmin,xmax,ymin,ymax,unit,LevelList);
 elseif id == 5
@@ -362,7 +363,7 @@ for ihis=1:Nhis
         elseif id == 3
             ubar2=ubar;
             vbar2=vbar;
-            vel=hwave;
+            vel=tmp;
         elseif id == 8
             ubar2(1:Im, 1:Jm)=NaN;
             ubar2(2:Im, 1:Jm)=mean(uave,3);%.*scale;

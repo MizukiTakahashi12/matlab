@@ -60,7 +60,7 @@ h_contour=contour(XData1,YData1,zdata2,...
 %    'LevelList',[0 0.5 1 3],...
 
 
-h_scatter=scatter(X,Y,7,Z,'fill'); %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Point size
+h_scatter=scatter(X,Y,2,Z,'fill'); %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Point size
 %h_scatter=plot(X,Y,'ro');
 %shading flat;
 %shading interp;
